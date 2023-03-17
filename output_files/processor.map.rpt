@@ -1,0 +1,594 @@
+Analysis & Synthesis report for processor
+Mon Dec 26 17:39:36 2022
+Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis DSP Block Usage Summary
+  9. User-Specified and Inferred Latches
+ 10. General Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Parameter Settings for Inferred Entity Instance: ALU:arithmetic_logic_unit|lpm_divide:Div0
+ 13. Parameter Settings for Inferred Entity Instance: ALU:arithmetic_logic_unit|lpm_mult:Mult0
+ 14. lpm_mult Parameter Settings by Entity Instance
+ 15. Post-Synthesis Netlist Statistics for Top Partition
+ 16. Elapsed Time Per Partition
+ 17. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2021  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Mon Dec 26 17:39:36 2022       ;
+; Quartus Prime Version              ; 21.1.0 Build 842 10/21/2021 SJ Lite Edition ;
+; Revision Name                      ; processor                                   ;
+; Top-level Entity Name              ; processor                                   ;
+; Family                             ; Cyclone IV E                                ;
+; Total logic elements               ; 488                                         ;
+;     Total combinational functions  ; 457                                         ;
+;     Dedicated logic registers      ; 67                                          ;
+; Total registers                    ; 67                                          ;
+; Total pins                         ; 17                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 2                                           ;
+; Total PLLs                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; EP4CE115F29C8      ;                    ;
+; Top-level entity name                                            ; processor          ; processor          ;
+; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 6           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 6           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
+;     Processor 5            ;   0.0%      ;
+;     Processor 6            ;   0.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                   ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                               ; Library ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------+---------+
+; registers.vhdl                   ; yes             ; User VHDL File               ; E:/desctop/VHDL codes/16bit/final/registers.vhdl                           ;         ;
+; processor.vhdl                   ; yes             ; User VHDL File               ; E:/desctop/VHDL codes/16bit/final/processor.vhdl                           ;         ;
+; pc.vhdl                          ; yes             ; User VHDL File               ; E:/desctop/VHDL codes/16bit/final/pc.vhdl                                  ;         ;
+; mux0.vhdl                        ; yes             ; User VHDL File               ; E:/desctop/VHDL codes/16bit/final/mux0.vhdl                                ;         ;
+; instruction.vhdl                 ; yes             ; User VHDL File               ; E:/desctop/VHDL codes/16bit/final/instruction.vhdl                         ;         ;
+; control.vhdl                     ; yes             ; User VHDL File               ; E:/desctop/VHDL codes/16bit/final/control.vhdl                             ;         ;
+; ALU.vhdl                         ; yes             ; User VHDL File               ; E:/desctop/VHDL codes/16bit/final/ALU.vhdl                                 ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/lpm_divide.tdf      ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/abs_divider.inc     ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/sign_div_unsign.inc ;         ;
+; aglobal211.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/aglobal211.inc      ;         ;
+; db/lpm_divide_lkm.tdf            ; yes             ; Auto-Generated Megafunction  ; E:/desctop/VHDL codes/16bit/final/db/lpm_divide_lkm.tdf                    ;         ;
+; db/sign_div_unsign_dnh.tdf       ; yes             ; Auto-Generated Megafunction  ; E:/desctop/VHDL codes/16bit/final/db/sign_div_unsign_dnh.tdf               ;         ;
+; db/alt_u_div_eaf.tdf             ; yes             ; Auto-Generated Megafunction  ; E:/desctop/VHDL codes/16bit/final/db/alt_u_div_eaf.tdf                     ;         ;
+; db/add_sub_7pc.tdf               ; yes             ; Auto-Generated Megafunction  ; E:/desctop/VHDL codes/16bit/final/db/add_sub_7pc.tdf                       ;         ;
+; db/add_sub_8pc.tdf               ; yes             ; Auto-Generated Megafunction  ; E:/desctop/VHDL codes/16bit/final/db/add_sub_8pc.tdf                       ;         ;
+; lpm_mult.tdf                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/lpm_mult.tdf        ;         ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/lpm_add_sub.inc     ;         ;
+; multcore.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/multcore.inc        ;         ;
+; bypassff.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/bypassff.inc        ;         ;
+; altshift.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/altshift.inc        ;         ;
+; db/mult_7dt.tdf                  ; yes             ; Auto-Generated Megafunction  ; E:/desctop/VHDL codes/16bit/final/db/mult_7dt.tdf                          ;         ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 488       ;
+;                                             ;           ;
+; Total combinational functions               ; 457       ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 244       ;
+;     -- 3 input functions                    ; 166       ;
+;     -- <=2 input functions                  ; 47        ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 324       ;
+;     -- arithmetic mode                      ; 133       ;
+;                                             ;           ;
+; Total registers                             ; 67        ;
+;     -- Dedicated logic registers            ; 67        ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 17        ;
+;                                             ;           ;
+; Embedded Multiplier 9-bit elements          ; 2         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 67        ;
+; Total fan-out                               ; 1785      ;
+; Average fan-out                             ; 3.19      ;
++---------------------------------------------+-----------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                    ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                        ; Entity Name         ; Library Name ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; |processor                                ; 457 (0)             ; 67 (0)                    ; 0           ; 2            ; 0       ; 1         ; 17   ; 0            ; |processor                                                                                                                                                 ; processor           ; work         ;
+;    |ALU:arithmetic_logic_unit|            ; 367 (66)            ; 0 (0)                     ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |processor|ALU:arithmetic_logic_unit                                                                                                                       ; ALU                 ; work         ;
+;       |lpm_divide:Div0|                   ; 301 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:arithmetic_logic_unit|lpm_divide:Div0                                                                                                       ; lpm_divide          ; work         ;
+;          |lpm_divide_lkm:auto_generated|  ; 301 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:arithmetic_logic_unit|lpm_divide:Div0|lpm_divide_lkm:auto_generated                                                                         ; lpm_divide_lkm      ; work         ;
+;             |sign_div_unsign_dnh:divider| ; 301 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:arithmetic_logic_unit|lpm_divide:Div0|lpm_divide_lkm:auto_generated|sign_div_unsign_dnh:divider                                             ; sign_div_unsign_dnh ; work         ;
+;                |alt_u_div_eaf:divider|    ; 301 (300)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:arithmetic_logic_unit|lpm_divide:Div0|lpm_divide_lkm:auto_generated|sign_div_unsign_dnh:divider|alt_u_div_eaf:divider                       ; alt_u_div_eaf       ; work         ;
+;                   |add_sub_8pc:add_sub_1| ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|ALU:arithmetic_logic_unit|lpm_divide:Div0|lpm_divide_lkm:auto_generated|sign_div_unsign_dnh:divider|alt_u_div_eaf:divider|add_sub_8pc:add_sub_1 ; add_sub_8pc         ; work         ;
+;       |lpm_mult:Mult0|                    ; 0 (0)               ; 0 (0)                     ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |processor|ALU:arithmetic_logic_unit|lpm_mult:Mult0                                                                                                        ; lpm_mult            ; work         ;
+;          |mult_7dt:auto_generated|        ; 0 (0)               ; 0 (0)                     ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |processor|ALU:arithmetic_logic_unit|lpm_mult:Mult0|mult_7dt:auto_generated                                                                                ; mult_7dt            ; work         ;
+;    |instruction:instruction_memory|       ; 6 (6)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|instruction:instruction_memory                                                                                                                  ; instruction         ; work         ;
+;    |pc:program_counter|                   ; 2 (2)               ; 3 (3)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|pc:program_counter                                                                                                                              ; pc                  ; work         ;
+;    |registers:register_file|              ; 82 (82)             ; 64 (64)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor|registers:register_file                                                                                                                         ; registers           ; work         ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary        ;
++---------------------------------------+-------------+
+; Statistic                             ; Number Used ;
++---------------------------------------+-------------+
+; Simple Multipliers (9-bit)            ; 0           ;
+; Simple Multipliers (18-bit)           ; 1           ;
+; Embedded Multiplier Blocks            ; --          ;
+; Embedded Multiplier 9-bit elements    ; 2           ;
+; Signed Embedded Multipliers           ; 0           ;
+; Unsigned Embedded Multipliers         ; 1           ;
+; Mixed Sign Embedded Multipliers       ; 0           ;
+; Variable Sign Embedded Multipliers    ; 0           ;
+; Dedicated Input Shift Register Chains ; 0           ;
++---------------------------------------+-------------+
+Note: number of Embedded Multiplier Blocks used is only available after a successful fit.
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                                 ;
++-----------------------------------------------------+--------------------------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal                  ; Free of Timing Hazards ;
++-----------------------------------------------------+--------------------------------------+------------------------+
+; ALU:arithmetic_logic_unit|result[0]                 ; ALU:arithmetic_logic_unit|result[15] ; yes                    ;
+; ALU:arithmetic_logic_unit|result[1]                 ; ALU:arithmetic_logic_unit|result[15] ; yes                    ;
+; ALU:arithmetic_logic_unit|result[2]                 ; ALU:arithmetic_logic_unit|result[15] ; yes                    ;
+; ALU:arithmetic_logic_unit|result[3]                 ; ALU:arithmetic_logic_unit|result[15] ; yes                    ;
+; ALU:arithmetic_logic_unit|result[4]                 ; ALU:arithmetic_logic_unit|result[15] ; yes                    ;
+; ALU:arithmetic_logic_unit|result[5]                 ; ALU:arithmetic_logic_unit|result[15] ; yes                    ;
+; ALU:arithmetic_logic_unit|result[6]                 ; ALU:arithmetic_logic_unit|result[15] ; yes                    ;
+; ALU:arithmetic_logic_unit|result[7]                 ; ALU:arithmetic_logic_unit|result[15] ; yes                    ;
+; ALU:arithmetic_logic_unit|result[8]                 ; ALU:arithmetic_logic_unit|result[15] ; yes                    ;
+; ALU:arithmetic_logic_unit|result[9]                 ; ALU:arithmetic_logic_unit|result[15] ; yes                    ;
+; ALU:arithmetic_logic_unit|result[10]                ; ALU:arithmetic_logic_unit|result[15] ; yes                    ;
+; ALU:arithmetic_logic_unit|result[11]                ; ALU:arithmetic_logic_unit|result[15] ; yes                    ;
+; ALU:arithmetic_logic_unit|result[12]                ; ALU:arithmetic_logic_unit|result[15] ; yes                    ;
+; ALU:arithmetic_logic_unit|result[13]                ; ALU:arithmetic_logic_unit|result[15] ; yes                    ;
+; ALU:arithmetic_logic_unit|result[14]                ; ALU:arithmetic_logic_unit|result[15] ; yes                    ;
+; ALU:arithmetic_logic_unit|result[15]                ; ALU:arithmetic_logic_unit|result[15] ; yes                    ;
+; Number of user-specified and inferred latches = 16  ;                                      ;                        ;
++-----------------------------------------------------+--------------------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 67    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 64    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------+
+; 8:1                ; 16 bits   ; 80 LEs        ; 80 LEs               ; 0 LEs                  ; No         ; |processor|ALU:arithmetic_logic_unit|result[0] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: ALU:arithmetic_logic_unit|lpm_divide:Div0 ;
++------------------------+----------------+--------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                             ;
++------------------------+----------------+--------------------------------------------------+
+; LPM_WIDTHN             ; 16             ; Untyped                                          ;
+; LPM_WIDTHD             ; 16             ; Untyped                                          ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                          ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                          ;
+; LPM_PIPELINE           ; 0              ; Untyped                                          ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                          ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                          ;
+; CBXI_PARAMETER         ; lpm_divide_lkm ; Untyped                                          ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                          ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                          ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                       ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                     ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                     ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                   ;
++------------------------+----------------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: ALU:arithmetic_logic_unit|lpm_mult:Mult0 ;
++------------------------------------------------+--------------+---------------------------+
+; Parameter Name                                 ; Value        ; Type                      ;
++------------------------------------------------+--------------+---------------------------+
+; AUTO_CARRY_CHAINS                              ; ON           ; AUTO_CARRY                ;
+; IGNORE_CARRY_BUFFERS                           ; OFF          ; IGNORE_CARRY              ;
+; AUTO_CASCADE_CHAINS                            ; ON           ; AUTO_CASCADE              ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF          ; IGNORE_CASCADE            ;
+; LPM_WIDTHA                                     ; 16           ; Untyped                   ;
+; LPM_WIDTHB                                     ; 16           ; Untyped                   ;
+; LPM_WIDTHP                                     ; 32           ; Untyped                   ;
+; LPM_WIDTHR                                     ; 32           ; Untyped                   ;
+; LPM_WIDTHS                                     ; 1            ; Untyped                   ;
+; LPM_REPRESENTATION                             ; UNSIGNED     ; Untyped                   ;
+; LPM_PIPELINE                                   ; 0            ; Untyped                   ;
+; LATENCY                                        ; 0            ; Untyped                   ;
+; INPUT_A_IS_CONSTANT                            ; NO           ; Untyped                   ;
+; INPUT_B_IS_CONSTANT                            ; NO           ; Untyped                   ;
+; USE_EAB                                        ; OFF          ; Untyped                   ;
+; MAXIMIZE_SPEED                                 ; 6            ; Untyped                   ;
+; DEVICE_FAMILY                                  ; Cyclone IV E ; Untyped                   ;
+; CARRY_CHAIN                                    ; MANUAL       ; Untyped                   ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT          ; TECH_MAPPER_APEX20K       ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO         ; Untyped                   ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0            ; Untyped                   ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0            ; Untyped                   ;
+; CBXI_PARAMETER                                 ; mult_7dt     ; Untyped                   ;
+; INPUT_A_FIXED_VALUE                            ; Bx           ; Untyped                   ;
+; INPUT_B_FIXED_VALUE                            ; Bx           ; Untyped                   ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF          ; Untyped                   ;
++------------------------------------------------+--------------+---------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------+
+; lpm_mult Parameter Settings by Entity Instance                                   ;
++---------------------------------------+------------------------------------------+
+; Name                                  ; Value                                    ;
++---------------------------------------+------------------------------------------+
+; Number of entity instances            ; 1                                        ;
+; Entity Instance                       ; ALU:arithmetic_logic_unit|lpm_mult:Mult0 ;
+;     -- LPM_WIDTHA                     ; 16                                       ;
+;     -- LPM_WIDTHB                     ; 16                                       ;
+;     -- LPM_WIDTHP                     ; 32                                       ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED                                 ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                       ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                       ;
+;     -- USE_EAB                        ; OFF                                      ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                     ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                       ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                       ;
++---------------------------------------+------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 17                          ;
+; cycloneiii_ff         ; 67                          ;
+;     ENA               ; 64                          ;
+;     plain             ; 3                           ;
+; cycloneiii_lcell_comb ; 457                         ;
+;     arith             ; 133                         ;
+;         3 data inputs ; 133                         ;
+;     normal            ; 324                         ;
+;         0 data inputs ; 14                          ;
+;         1 data inputs ; 19                          ;
+;         2 data inputs ; 14                          ;
+;         3 data inputs ; 33                          ;
+;         4 data inputs ; 244                         ;
+; cycloneiii_mac_mult   ; 1                           ;
+; cycloneiii_mac_out    ; 1                           ;
+;                       ;                             ;
+; Max LUT depth         ; 49.90                       ;
+; Average LUT depth     ; 39.74                       ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:02     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
+    Info: Processing started: Mon Dec 26 17:39:25 2022
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off processor -c processor
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file registers.vhdl
+    Info (12022): Found design unit 1: registers-Behavioral File: E:/desctop/VHDL codes/16bit/final/registers.vhdl Line: 18
+    Info (12023): Found entity 1: registers File: E:/desctop/VHDL codes/16bit/final/registers.vhdl Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file processor_test.vhdl
+    Info (12022): Found design unit 1: processor_test-behavior File: E:/desctop/VHDL codes/16bit/final/processor_test.vhdl Line: 7
+    Info (12023): Found entity 1: processor_test File: E:/desctop/VHDL codes/16bit/final/processor_test.vhdl Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file processor.vhdl
+    Info (12022): Found design unit 1: processor-Behavioral File: E:/desctop/VHDL codes/16bit/final/processor.vhdl Line: 10
+    Info (12023): Found entity 1: processor File: E:/desctop/VHDL codes/16bit/final/processor.vhdl Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file pc.vhdl
+    Info (12022): Found design unit 1: pc-behave File: E:/desctop/VHDL codes/16bit/final/pc.vhdl Line: 8
+    Info (12023): Found entity 1: pc File: E:/desctop/VHDL codes/16bit/final/pc.vhdl Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file mux0.vhdl
+    Info (12022): Found design unit 1: mux0-Behavioral File: E:/desctop/VHDL codes/16bit/final/mux0.vhdl Line: 14
+    Info (12023): Found entity 1: mux0 File: E:/desctop/VHDL codes/16bit/final/mux0.vhdl Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file instruction.vhdl
+    Info (12022): Found design unit 1: instruction-Behavioral File: E:/desctop/VHDL codes/16bit/final/instruction.vhdl Line: 15
+    Info (12023): Found entity 1: instruction File: E:/desctop/VHDL codes/16bit/final/instruction.vhdl Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file control.vhdl
+    Info (12022): Found design unit 1: control-Behavioral File: E:/desctop/VHDL codes/16bit/final/control.vhdl Line: 11
+    Info (12023): Found entity 1: control File: E:/desctop/VHDL codes/16bit/final/control.vhdl Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file alu.vhdl
+    Info (12022): Found design unit 1: ALU-Behavioral File: E:/desctop/VHDL codes/16bit/final/ALU.vhdl Line: 16
+    Info (12023): Found entity 1: ALU File: E:/desctop/VHDL codes/16bit/final/ALU.vhdl Line: 7
+Info (12127): Elaborating entity "processor" for the top level hierarchy
+Info (12128): Elaborating entity "ALU" for hierarchy "ALU:arithmetic_logic_unit" File: E:/desctop/VHDL codes/16bit/final/processor.vhdl Line: 81
+Warning (10631): VHDL Process Statement warning at ALU.vhdl(19): inferring latch(es) for signal or variable "result", which holds its previous value in one or more paths through the process File: E:/desctop/VHDL codes/16bit/final/ALU.vhdl Line: 19
+Info (10041): Inferred latch for "result[0]" at ALU.vhdl(19) File: E:/desctop/VHDL codes/16bit/final/ALU.vhdl Line: 19
+Info (10041): Inferred latch for "result[1]" at ALU.vhdl(19) File: E:/desctop/VHDL codes/16bit/final/ALU.vhdl Line: 19
+Info (10041): Inferred latch for "result[2]" at ALU.vhdl(19) File: E:/desctop/VHDL codes/16bit/final/ALU.vhdl Line: 19
+Info (10041): Inferred latch for "result[3]" at ALU.vhdl(19) File: E:/desctop/VHDL codes/16bit/final/ALU.vhdl Line: 19
+Info (10041): Inferred latch for "result[4]" at ALU.vhdl(19) File: E:/desctop/VHDL codes/16bit/final/ALU.vhdl Line: 19
+Info (10041): Inferred latch for "result[5]" at ALU.vhdl(19) File: E:/desctop/VHDL codes/16bit/final/ALU.vhdl Line: 19
+Info (10041): Inferred latch for "result[6]" at ALU.vhdl(19) File: E:/desctop/VHDL codes/16bit/final/ALU.vhdl Line: 19
+Info (10041): Inferred latch for "result[7]" at ALU.vhdl(19) File: E:/desctop/VHDL codes/16bit/final/ALU.vhdl Line: 19
+Info (10041): Inferred latch for "result[8]" at ALU.vhdl(19) File: E:/desctop/VHDL codes/16bit/final/ALU.vhdl Line: 19
+Info (10041): Inferred latch for "result[9]" at ALU.vhdl(19) File: E:/desctop/VHDL codes/16bit/final/ALU.vhdl Line: 19
+Info (10041): Inferred latch for "result[10]" at ALU.vhdl(19) File: E:/desctop/VHDL codes/16bit/final/ALU.vhdl Line: 19
+Info (10041): Inferred latch for "result[11]" at ALU.vhdl(19) File: E:/desctop/VHDL codes/16bit/final/ALU.vhdl Line: 19
+Info (10041): Inferred latch for "result[12]" at ALU.vhdl(19) File: E:/desctop/VHDL codes/16bit/final/ALU.vhdl Line: 19
+Info (10041): Inferred latch for "result[13]" at ALU.vhdl(19) File: E:/desctop/VHDL codes/16bit/final/ALU.vhdl Line: 19
+Info (10041): Inferred latch for "result[14]" at ALU.vhdl(19) File: E:/desctop/VHDL codes/16bit/final/ALU.vhdl Line: 19
+Info (10041): Inferred latch for "result[15]" at ALU.vhdl(19) File: E:/desctop/VHDL codes/16bit/final/ALU.vhdl Line: 19
+Info (12128): Elaborating entity "control" for hierarchy "control:control_unit" File: E:/desctop/VHDL codes/16bit/final/processor.vhdl Line: 89
+Info (12128): Elaborating entity "instruction" for hierarchy "instruction:instruction_memory" File: E:/desctop/VHDL codes/16bit/final/processor.vhdl Line: 96
+Info (12128): Elaborating entity "mux0" for hierarchy "mux0:mux_0" File: E:/desctop/VHDL codes/16bit/final/processor.vhdl Line: 104
+Info (12128): Elaborating entity "pc" for hierarchy "pc:program_counter" File: E:/desctop/VHDL codes/16bit/final/processor.vhdl Line: 112
+Info (12128): Elaborating entity "registers" for hierarchy "registers:register_file" File: E:/desctop/VHDL codes/16bit/final/processor.vhdl Line: 117
+Info (276014): Found 1 instances of uninferred RAM logic
+    Info (276004): RAM logic "registers:register_file|reg" is uninferred due to inappropriate RAM size File: E:/desctop/VHDL codes/16bit/final/registers.vhdl Line: 20
+Info (278001): Inferred 2 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "ALU:arithmetic_logic_unit|Div0" File: E:/desctop/VHDL codes/16bit/final/ALU.vhdl Line: 37
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "ALU:arithmetic_logic_unit|Mult0" File: E:/desctop/VHDL codes/16bit/final/ALU.vhdl Line: 35
+Info (12130): Elaborated megafunction instantiation "ALU:arithmetic_logic_unit|lpm_divide:Div0" File: E:/desctop/VHDL codes/16bit/final/ALU.vhdl Line: 37
+Info (12133): Instantiated megafunction "ALU:arithmetic_logic_unit|lpm_divide:Div0" with the following parameter: File: E:/desctop/VHDL codes/16bit/final/ALU.vhdl Line: 37
+    Info (12134): Parameter "LPM_WIDTHN" = "16"
+    Info (12134): Parameter "LPM_WIDTHD" = "16"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_lkm.tdf
+    Info (12023): Found entity 1: lpm_divide_lkm File: E:/desctop/VHDL codes/16bit/final/db/lpm_divide_lkm.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_dnh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_dnh File: E:/desctop/VHDL codes/16bit/final/db/sign_div_unsign_dnh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_eaf.tdf
+    Info (12023): Found entity 1: alt_u_div_eaf File: E:/desctop/VHDL codes/16bit/final/db/alt_u_div_eaf.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_7pc.tdf
+    Info (12023): Found entity 1: add_sub_7pc File: E:/desctop/VHDL codes/16bit/final/db/add_sub_7pc.tdf Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_8pc.tdf
+    Info (12023): Found entity 1: add_sub_8pc File: E:/desctop/VHDL codes/16bit/final/db/add_sub_8pc.tdf Line: 23
+Info (12130): Elaborated megafunction instantiation "ALU:arithmetic_logic_unit|lpm_mult:Mult0" File: E:/desctop/VHDL codes/16bit/final/ALU.vhdl Line: 35
+Info (12133): Instantiated megafunction "ALU:arithmetic_logic_unit|lpm_mult:Mult0" with the following parameter: File: E:/desctop/VHDL codes/16bit/final/ALU.vhdl Line: 35
+    Info (12134): Parameter "LPM_WIDTHA" = "16"
+    Info (12134): Parameter "LPM_WIDTHB" = "16"
+    Info (12134): Parameter "LPM_WIDTHP" = "32"
+    Info (12134): Parameter "LPM_WIDTHR" = "32"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "6"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_7dt.tdf
+    Info (12023): Found entity 1: mult_7dt File: E:/desctop/VHDL codes/16bit/final/db/mult_7dt.tdf Line: 29
+Warning (13012): Latch ALU:arithmetic_logic_unit|result[0] has unsafe behavior File: E:/desctop/VHDL codes/16bit/final/ALU.vhdl Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal pc:program_counter|current_signal[0] File: E:/desctop/VHDL codes/16bit/final/pc.vhdl Line: 14
+Warning (13012): Latch ALU:arithmetic_logic_unit|result[1] has unsafe behavior File: E:/desctop/VHDL codes/16bit/final/ALU.vhdl Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal pc:program_counter|current_signal[0] File: E:/desctop/VHDL codes/16bit/final/pc.vhdl Line: 14
+Warning (13012): Latch ALU:arithmetic_logic_unit|result[2] has unsafe behavior File: E:/desctop/VHDL codes/16bit/final/ALU.vhdl Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal pc:program_counter|current_signal[0] File: E:/desctop/VHDL codes/16bit/final/pc.vhdl Line: 14
+Warning (13012): Latch ALU:arithmetic_logic_unit|result[3] has unsafe behavior File: E:/desctop/VHDL codes/16bit/final/ALU.vhdl Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal pc:program_counter|current_signal[0] File: E:/desctop/VHDL codes/16bit/final/pc.vhdl Line: 14
+Warning (13012): Latch ALU:arithmetic_logic_unit|result[4] has unsafe behavior File: E:/desctop/VHDL codes/16bit/final/ALU.vhdl Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal pc:program_counter|current_signal[0] File: E:/desctop/VHDL codes/16bit/final/pc.vhdl Line: 14
+Warning (13012): Latch ALU:arithmetic_logic_unit|result[5] has unsafe behavior File: E:/desctop/VHDL codes/16bit/final/ALU.vhdl Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal pc:program_counter|current_signal[0] File: E:/desctop/VHDL codes/16bit/final/pc.vhdl Line: 14
+Warning (13012): Latch ALU:arithmetic_logic_unit|result[6] has unsafe behavior File: E:/desctop/VHDL codes/16bit/final/ALU.vhdl Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal pc:program_counter|current_signal[0] File: E:/desctop/VHDL codes/16bit/final/pc.vhdl Line: 14
+Warning (13012): Latch ALU:arithmetic_logic_unit|result[7] has unsafe behavior File: E:/desctop/VHDL codes/16bit/final/ALU.vhdl Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal pc:program_counter|current_signal[0] File: E:/desctop/VHDL codes/16bit/final/pc.vhdl Line: 14
+Warning (13012): Latch ALU:arithmetic_logic_unit|result[8] has unsafe behavior File: E:/desctop/VHDL codes/16bit/final/ALU.vhdl Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal pc:program_counter|current_signal[0] File: E:/desctop/VHDL codes/16bit/final/pc.vhdl Line: 14
+Warning (13012): Latch ALU:arithmetic_logic_unit|result[9] has unsafe behavior File: E:/desctop/VHDL codes/16bit/final/ALU.vhdl Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal pc:program_counter|current_signal[0] File: E:/desctop/VHDL codes/16bit/final/pc.vhdl Line: 14
+Warning (13012): Latch ALU:arithmetic_logic_unit|result[10] has unsafe behavior File: E:/desctop/VHDL codes/16bit/final/ALU.vhdl Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal pc:program_counter|current_signal[0] File: E:/desctop/VHDL codes/16bit/final/pc.vhdl Line: 14
+Warning (13012): Latch ALU:arithmetic_logic_unit|result[11] has unsafe behavior File: E:/desctop/VHDL codes/16bit/final/ALU.vhdl Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal pc:program_counter|current_signal[0] File: E:/desctop/VHDL codes/16bit/final/pc.vhdl Line: 14
+Warning (13012): Latch ALU:arithmetic_logic_unit|result[12] has unsafe behavior File: E:/desctop/VHDL codes/16bit/final/ALU.vhdl Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal pc:program_counter|current_signal[0] File: E:/desctop/VHDL codes/16bit/final/pc.vhdl Line: 14
+Warning (13012): Latch ALU:arithmetic_logic_unit|result[13] has unsafe behavior File: E:/desctop/VHDL codes/16bit/final/ALU.vhdl Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal pc:program_counter|current_signal[0] File: E:/desctop/VHDL codes/16bit/final/pc.vhdl Line: 14
+Warning (13012): Latch ALU:arithmetic_logic_unit|result[14] has unsafe behavior File: E:/desctop/VHDL codes/16bit/final/ALU.vhdl Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal pc:program_counter|current_signal[0] File: E:/desctop/VHDL codes/16bit/final/pc.vhdl Line: 14
+Warning (13012): Latch ALU:arithmetic_logic_unit|result[15] has unsafe behavior File: E:/desctop/VHDL codes/16bit/final/ALU.vhdl Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal pc:program_counter|current_signal[0] File: E:/desctop/VHDL codes/16bit/final/pc.vhdl Line: 14
+Warning (14026): LATCH primitive "ALU:arithmetic_logic_unit|result[0]" is permanently enabled File: E:/desctop/VHDL codes/16bit/final/ALU.vhdl Line: 19
+Warning (14026): LATCH primitive "ALU:arithmetic_logic_unit|result[1]" is permanently enabled File: E:/desctop/VHDL codes/16bit/final/ALU.vhdl Line: 19
+Warning (14026): LATCH primitive "ALU:arithmetic_logic_unit|result[2]" is permanently enabled File: E:/desctop/VHDL codes/16bit/final/ALU.vhdl Line: 19
+Warning (14026): LATCH primitive "ALU:arithmetic_logic_unit|result[3]" is permanently enabled File: E:/desctop/VHDL codes/16bit/final/ALU.vhdl Line: 19
+Warning (14026): LATCH primitive "ALU:arithmetic_logic_unit|result[4]" is permanently enabled File: E:/desctop/VHDL codes/16bit/final/ALU.vhdl Line: 19
+Warning (14026): LATCH primitive "ALU:arithmetic_logic_unit|result[5]" is permanently enabled File: E:/desctop/VHDL codes/16bit/final/ALU.vhdl Line: 19
+Warning (14026): LATCH primitive "ALU:arithmetic_logic_unit|result[6]" is permanently enabled File: E:/desctop/VHDL codes/16bit/final/ALU.vhdl Line: 19
+Warning (14026): LATCH primitive "ALU:arithmetic_logic_unit|result[7]" is permanently enabled File: E:/desctop/VHDL codes/16bit/final/ALU.vhdl Line: 19
+Warning (14026): LATCH primitive "ALU:arithmetic_logic_unit|result[8]" is permanently enabled File: E:/desctop/VHDL codes/16bit/final/ALU.vhdl Line: 19
+Warning (14026): LATCH primitive "ALU:arithmetic_logic_unit|result[9]" is permanently enabled File: E:/desctop/VHDL codes/16bit/final/ALU.vhdl Line: 19
+Warning (14026): LATCH primitive "ALU:arithmetic_logic_unit|result[10]" is permanently enabled File: E:/desctop/VHDL codes/16bit/final/ALU.vhdl Line: 19
+Warning (14026): LATCH primitive "ALU:arithmetic_logic_unit|result[11]" is permanently enabled File: E:/desctop/VHDL codes/16bit/final/ALU.vhdl Line: 19
+Warning (14026): LATCH primitive "ALU:arithmetic_logic_unit|result[12]" is permanently enabled File: E:/desctop/VHDL codes/16bit/final/ALU.vhdl Line: 19
+Warning (14026): LATCH primitive "ALU:arithmetic_logic_unit|result[13]" is permanently enabled File: E:/desctop/VHDL codes/16bit/final/ALU.vhdl Line: 19
+Warning (14026): LATCH primitive "ALU:arithmetic_logic_unit|result[14]" is permanently enabled File: E:/desctop/VHDL codes/16bit/final/ALU.vhdl Line: 19
+Warning (14026): LATCH primitive "ALU:arithmetic_logic_unit|result[15]" is permanently enabled File: E:/desctop/VHDL codes/16bit/final/ALU.vhdl Line: 19
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 522 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 1 input pins
+    Info (21059): Implemented 16 output pins
+    Info (21061): Implemented 503 logic cells
+    Info (21062): Implemented 2 DSP elements
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 50 warnings
+    Info: Peak virtual memory: 4858 megabytes
+    Info: Processing ended: Mon Dec 26 17:39:36 2022
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:21
+
+
