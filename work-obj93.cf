@@ -1,0 +1,25 @@
+v 3
+file . "processor_test.vhdl" "20221225200848.000" "20221226093841.135":
+  entity processor_test at 1( 0) + 0 on 49;
+  architecture behavior of processor_test at 7( 97) + 0 on 50;
+file . "processor.vhdl" "20221226071404.000" "20221226093814.960":
+  entity processor at 1( 0) + 0 on 47;
+  architecture behavioral of processor at 10( 200) + 0 on 48;
+file . "mux0.vhdl" "20221225235052.000" "20221226091649.452":
+  entity mux0 at 1( 0) + 0 on 33;
+  architecture behavioral of mux0 at 14( 297) + 0 on 34;
+file . "control.vhdl" "20221225235050.000" "20221226091512.955":
+  entity control at 1( 0) + 0 on 29;
+  architecture behavioral of control at 11( 242) + 0 on 30;
+file . "ALU.vhdl" "20221225235048.000" "20221226093732.407":
+  entity alu at 1( 0) + 0 on 43;
+  architecture behavioral of alu at 16( 383) + 0 on 44;
+file . "instruction.vhdl" "20221226073708.000" "20221226093758.522":
+  entity instruction at 1( 0) + 0 on 45;
+  architecture behavioral of instruction at 15( 414) + 0 on 46;
+file . "pc.vhdl" "20221225235054.000" "20221226091710.542":
+  entity pc at 1( 0) + 0 on 35;
+  architecture behave of pc at 8( 173) + 0 on 36;
+file . "registers.vhdl" "20221225235056.000" "20221226091734.577":
+  entity registers at 1( 0) + 0 on 37;
+  architecture behavioral of registers at 18( 467) + 0 on 38;
